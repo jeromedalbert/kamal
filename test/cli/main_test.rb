@@ -117,7 +117,7 @@ class CliMainTest < CliTestCase
       .returns("")
 
     SSHKit::Backend::Abstract.any_instance.expects(:capture_with_info)
-      .with(:docker, :buildx, :inspect, "kamal-app-multiarch", "> /dev/null")
+      .with(:docker, :buildx, :inspect, "kamal-local", "> /dev/null")
       .returns("")
 
     assert_raises(Kamal::Cli::LockError) do
@@ -150,7 +150,7 @@ class CliMainTest < CliTestCase
       .returns("")
 
     SSHKit::Backend::Abstract.any_instance.expects(:capture_with_info)
-      .with(:docker, :buildx, :inspect, "kamal-app-multiarch", "> /dev/null")
+      .with(:docker, :buildx, :inspect, "kamal-local", "> /dev/null")
       .returns("")
 
     assert_raises(SSHKit::Runner::ExecuteError) do
