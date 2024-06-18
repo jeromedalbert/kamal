@@ -1,0 +1,51 @@
+# Aliases
+#
+# Aliases are shortcuts for Kamal commands.
+#
+# For example, for a Rails app, you might open a console with:
+#
+# ```shell
+# kamal app exec -i -r console "rails console"
+# ```
+#
+# By defining an alias, like this:
+aliases:
+  console:
+    command: app exec
+    arguments: [ "rails console" ]
+    options:
+      role: console
+      interactive: true
+# You can now open the console with:
+# ```shell
+# kamal console
+# ```
+
+# Configuring aliases
+#
+# Aliases are defined in the root config under the alias key
+#
+# Each alias is named and can only contain lowercase letters, numbers, dashes and underscores.
+
+aliases:
+  uname:
+
+    # Command
+    #
+    # This is the command to run, for subcommands use a space separated string
+    command: app exec
+
+    # Options
+    #
+    # These are any options you want to pass to the command. Use the long form.
+    # The value should match the type of the option.
+    options:
+      quiet: true
+      primary: true
+      role: web
+
+    # Arguments
+    #
+    # If we want to pass arguments to the command, we do that here.
+    # Otherwise arguments will be forwarded from the command line
+    arguments: [ uname ]

@@ -113,6 +113,10 @@ class Kamal::Commander
     @traefik ||= Kamal::Commands::Traefik.new(config)
   end
 
+  def alias(name)
+    config.aliases[name]
+  end
+
 
   def with_verbosity(level)
     old_level = self.verbosity
