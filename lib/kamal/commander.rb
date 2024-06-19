@@ -27,7 +27,11 @@ class Kamal::Commander
 
   def specific_primary!
     @specifics = nil
-    self.specific_hosts = [ config.primary_host ]
+    if specific_roles.any?
+      self.specific_hosts = [ specific_roles.first.primary_host ]
+    else
+      self.specific_hosts = [ config.primary_host ]
+    end
   end
 
   def specific_roles=(role_names)

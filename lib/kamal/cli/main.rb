@@ -224,7 +224,7 @@ class Kamal::Cli::Main < Kamal::Cli::Base
     _alias = KAMAL.alias(args.last)
     if _alias
       all_options = options.deep_merge(_alias.options)
-      arguments = args.length > 1 ? args[0..-2] : _alias.arguments
+      arguments = _alias.arguments + args[0..-2]
       if options[:verbose]
         puts "Invoking alias '#{command}' as '#{_alias.command}' with args '#{arguments}' and options '#{all_options}'"
       end
